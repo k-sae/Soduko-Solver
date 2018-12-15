@@ -1,10 +1,14 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+
+
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -21,26 +25,30 @@ namespace SudokuSolver
     /// </summary>
     public partial class MainWindow : Window
     {
+        public String[] lines;
         public MainWindow()
         {
             InitializeComponent();
-            Solver s = new Solver();
-            int[,] board = s.Get_random_board();
-            s.ParallelSolve(board);
-            Debug.Write(s.solution);
+           
 
         }
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            Window1 win2 = new Window1();
+            
+            Solver s = new Solver();
+            int[,] board = s.Get_random_board(lines);
+            Window1 win2 = new Window1(board);
             win2.Show();
 
         }
 
         private void HomePageBrowse_Btn_Click(object sender, RoutedEventArgs e)
         {
-            
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+                 txtEditor.Text= File.ReadAllText(openFileDialog.FileName);
+            lines = File.ReadAllLines(openFileDialog.FileName);
         }
     }
 }

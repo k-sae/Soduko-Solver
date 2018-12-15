@@ -183,7 +183,7 @@ namespace SudokuSolver
          Read the boards from test file and return random board
          * Make sure to put the text file under bin/debug to be able to read
              */
-        public int[,] Get_random_board()
+        public int[,] Get_random_board(String[] lines)
         {
 
             try
@@ -191,8 +191,8 @@ namespace SudokuSolver
                
                 int[,] board = new int[9, 9];
                
-                String file_name = "TestData.txt";
-                String[] lines = File.ReadAllLines(file_name);
+                
+               
 
 
                 Random random_choice = new Random();
