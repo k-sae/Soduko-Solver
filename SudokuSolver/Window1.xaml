@@ -17,7 +17,7 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Grid Grid.Row="0" Grid.Column="0">
+        <Grid Name="first" Grid.Row="0" Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
@@ -28,17 +28,9 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Label Name="B1R0C0"  Grid.Row="0" Grid.Column="0" />
-            <Label Name="B1R1C0"  Grid.Row="1" Grid.Column="0" />
-            <Label Name="B1R2C0"  Grid.Row="2" Grid.Column="0" />
-            <Label Name="B1R0C1"  Grid.Row="0" Grid.Column="1" />
-            <Label Name="B1R1C1"  Grid.Row="1" Grid.Column="1" />
-            <Label Name="B1R2C1"  Grid.Row="2" Grid.Column="1" />
-            <Label Name="B1R0C2"  Grid.Row="0" Grid.Column="2" />
-            <Label Name="B1R1C2"  Grid.Row="1" Grid.Column="2" />
-            <Label Name="B1R2C2"  Grid.Row="2" Grid.Column="2" />
+          
         </Grid>
-        <Grid Grid.Row="1" Grid.Column="0">
+        <Grid Grid.Row="1" Grid.Column="0" Name="fourth">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
@@ -49,38 +41,8 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Label Name="B2R0C0"  Grid.Row="0" Grid.Column="0" />
-            <Label Name="B2R1C0"  Grid.Row="1" Grid.Column="0" />
-            <Label Name="B2R2C0"  Grid.Row="2" Grid.Column="0" />
-            <Label Name="B2R0C1"  Grid.Row="0" Grid.Column="1" />
-            <Label Name="B2R1C1"  Grid.Row="1" Grid.Column="1" />
-            <Label Name="B2R2C1"  Grid.Row="2" Grid.Column="1" />
-            <Label Name="B2R0C2"  Grid.Row="0" Grid.Column="2" />
-            <Label Name="B2R1C2"  Grid.Row="1" Grid.Column="2" />
-            <Label Name="B2R2C2"  Grid.Row="2" Grid.Column="2" />
-            </Grid>
-        <Grid Grid.Row="2" Grid.Column="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Label Name="B3R0C0"  Grid.Row="0" Grid.Column="0" />
-            <Label Name="B3R1C0"  Grid.Row="1" Grid.Column="0" />
-            <Label Name="B3R2C0"  Grid.Row="2" Grid.Column="0" />
-            <Label Name="B3R0C1"  Grid.Row="0" Grid.Column="1" />
-            <Label Name="B3R1C1"  Grid.Row="1" Grid.Column="1" />
-            <Label Name="B3R2C1"  Grid.Row="2" Grid.Column="1" />
-            <Label Name="B3R0C2"  Grid.Row="0" Grid.Column="2" />
-            <Label Name="B3R1C2"  Grid.Row="1" Grid.Column="2" />
-            <Label Name="B3R2C2"  Grid.Row="2" Grid.Column="2" />
         </Grid>
-        <Grid Grid.Row="0" Grid.Column="1">
+        <Grid Grid.Row="2" Grid.Column="0" Name="seventh">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
@@ -91,17 +53,9 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Label Name="B4R0C0"  Grid.Row="0" Grid.Column="0" />
-            <Label Name="B4R1C0"  Grid.Row="1" Grid.Column="0" />
-            <Label Name="B4R2C0"  Grid.Row="2" Grid.Column="0" />
-            <Label Name="B4R0C1"  Grid.Row="0" Grid.Column="1" />
-            <Label Name="B4R1C1"  Grid.Row="1" Grid.Column="1" />
-            <Label Name="B4R2C1"  Grid.Row="2" Grid.Column="1" />
-            <Label Name="B4R0C2"  Grid.Row="0" Grid.Column="2" />
-            <Label Name="B4R1C2"  Grid.Row="1" Grid.Column="2" />
-            <Label Name="B4R2C2"  Grid.Row="2" Grid.Column="2" />
+        
         </Grid>
-        <Grid Grid.Row="1" Grid.Column="1">
+        <Grid Grid.Row="0" Grid.Column="1" Name="Second">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
@@ -112,17 +66,9 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Label Name="B5R0C0"  Grid.Row="0" Grid.Column="0" />
-            <Label Name="B5R1C0"  Grid.Row="1" Grid.Column="0" />
-            <Label Name="B5R2C0"  Grid.Row="2" Grid.Column="0" />
-            <Label Name="B5R0C1"  Grid.Row="0" Grid.Column="1" />
-            <Label Name="B5R1C1"  Grid.Row="1" Grid.Column="1" />
-            <Label Name="B5R2C1"  Grid.Row="2" Grid.Column="1" />
-            <Label Name="B5R0C2"  Grid.Row="0" Grid.Column="2" />
-            <Label Name="B5R1C2"  Grid.Row="1" Grid.Column="2" />
-            <Label Name="B5R2C2"  Grid.Row="2" Grid.Column="2" />
+            
         </Grid>
-        <Grid Grid.Row="2" Grid.Column="1">
+        <Grid Grid.Row="1" Grid.Column="1" Name="fifth">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
@@ -133,17 +79,9 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Label Name="B6R0C0"  Grid.Row="0" Grid.Column="0" />
-            <Label Name="B6R1C0"  Grid.Row="1" Grid.Column="0" />
-            <Label Name="B6R2C0"  Grid.Row="2" Grid.Column="0" />
-            <Label Name="B6R0C1"  Grid.Row="0" Grid.Column="1" />
-            <Label Name="B6R1C1"  Grid.Row="1" Grid.Column="1" />
-            <Label Name="B6R2C1"  Grid.Row="2" Grid.Column="1" />
-            <Label Name="B6R0C2"  Grid.Row="0" Grid.Column="2" />
-            <Label Name="B6R1C2"  Grid.Row="1" Grid.Column="2" />
-            <Label Name="B6R2C2"  Grid.Row="2" Grid.Column="2" />
+           
         </Grid>
-        <Grid Grid.Row="0" Grid.Column="2">
+        <Grid Grid.Row="2" Grid.Column="1" Name="eight">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
@@ -154,17 +92,9 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Label Name="B7R0C0"  Grid.Row="0" Grid.Column="0" />
-            <Label Name="B7R1C0"  Grid.Row="1" Grid.Column="0" />
-            <Label Name="B7R2C0"  Grid.Row="2" Grid.Column="0" />
-            <Label Name="B7R0C1"  Grid.Row="0" Grid.Column="1" />
-            <Label Name="B7R1C1"  Grid.Row="1" Grid.Column="1" />
-            <Label Name="B7R2C1"  Grid.Row="2" Grid.Column="1" />
-            <Label Name="B7R0C2"  Grid.Row="0" Grid.Column="2" />
-            <Label Name="B7R1C2"  Grid.Row="1" Grid.Column="2" />
-            <Label Name="B7R2C2"  Grid.Row="2" Grid.Column="2" />
+         
         </Grid>
-        <Grid Grid.Row="1" Grid.Column="2">
+        <Grid Grid.Row="0" Grid.Column="2" Name="Third">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
@@ -175,18 +105,23 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Label Name="B8R0C0"  Grid.Row="0" Grid.Column="0" />
-            <Label Name="B8R1C0"  Grid.Row="1" Grid.Column="0" />
-            <Label Name="B8R2C0"  Grid.Row="2" Grid.Column="0" />
-            <Label Name="B8R0C1"  Grid.Row="0" Grid.Column="1" />
-            <Label Name="B8R1C1"  Grid.Row="1" Grid.Column="1" />
-            <Label Name="B8R2C1"  Grid.Row="2" Grid.Column="1" />
-            <Label Name="B8R0C2"  Grid.Row="0" Grid.Column="2" />
-            <Label Name="B8R1C2"  Grid.Row="1" Grid.Column="2" />
-            <Label Name="B8R2C2"  Grid.Row="2" Grid.Column="2" />
+         
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="2" Name="sixth">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+           
 
         </Grid>
-        <Grid Grid.Row="2" Grid.Column="2">
+        <Grid Grid.Row="2" Grid.Column="2" Name="night">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
@@ -197,15 +132,7 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Label Name="B9R0C0"  Grid.Row="0" Grid.Column="0" />
-            <Label Name="B9R1C0"  Grid.Row="1" Grid.Column="0" />
-            <Label Name="B9R2C0"  Grid.Row="2" Grid.Column="0" />
-            <Label Name="B9R0C1"  Grid.Row="0" Grid.Column="1" />
-            <Label Name="B9R1C1"  Grid.Row="1" Grid.Column="1" />
-            <Label Name="B9R2C1"  Grid.Row="2" Grid.Column="1" />
-            <Label Name="B9R0C2"  Grid.Row="0" Grid.Column="2" />
-            <Label Name="B9R1C2"  Grid.Row="1" Grid.Column="2" />
-            <Label Name="B9R2C2"  Grid.Row="2" Grid.Column="2" />
+            
         </Grid>
     </Grid>
 </Window>
