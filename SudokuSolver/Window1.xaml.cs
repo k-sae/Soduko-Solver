@@ -115,7 +115,7 @@ namespace SudokuSolver
                             y.Background = new SolidColorBrush(Colors.Red);
                             y.Content = board[x, i];
                             y.SetValue(Grid.ColumnProperty, i - 3);
-                            y.SetValue(Grid.RowProperty, x - 5);
+                            y.SetValue(Grid.RowProperty, x - 6);
                             eight.Children.Add(y);
                         }
                     }
@@ -123,25 +123,94 @@ namespace SudokuSolver
                 }
                 
             }
-
-            //check if it wasnot == " " 
-
-
-        }
-        private static UIElement GetChildren(Grid grid, int row, int column)
-        {
-            foreach (UIElement child in grid.Children)
+            s.SequentialSolve(board);
+            for (int i = 0; i < 9; i++)
             {
-                if (Grid.GetRow(child) == row
-                      &&
-                   Grid.GetColumn(child) == column)
+
+                for (int x = 0; x < 9; x++)
                 {
-                    return child;
+                    Label y = new Label();
+                    if (x <= 2 && i <= 2)
+                    {
+                        y.Content = board[x, i];
+                        y.SetValue(Grid.ColumnProperty, i);
+                        y.SetValue(Grid.RowProperty, x);
+                        first.Children.Add(y);
+                    }
+                    if (x > 2 && x <= 5 && i <= 2)
+                    {
+                       
+                        y.Content = board[x, i];
+                        y.SetValue(Grid.ColumnProperty, i);
+                        y.SetValue(Grid.RowProperty, x - 3);
+                        fourth.Children.Add(y);
+                    }
+                    if (x > 5 && x <= 8 && i <= 2)
+                    {
+                        
+                        y.Content = board[x, i];
+                        y.SetValue(Grid.ColumnProperty, i);
+                        y.SetValue(Grid.RowProperty, x - 6);
+                        seventh.Children.Add(y);
+                    }
+                    if (i > 2 && i <= 5 && x <= 2)
+                    {
+                        
+                        y.Content = board[x, i];
+                        y.SetValue(Grid.ColumnProperty, i - 3);
+                        y.SetValue(Grid.RowProperty, x);
+                        Second.Children.Add(y);
+                    }
+                    if (i > 5 && i <= 8 && x <= 2)
+                    {
+                       
+                        y.Content = board[x, i];
+                        y.SetValue(Grid.ColumnProperty, i - 6);
+                        y.SetValue(Grid.RowProperty, x);
+                        Third.Children.Add(y);
+                    }
+                    if (i > 2 && i <= 5 && x > 2 && x <= 5)
+                    {
+                      
+                        y.Content = board[x, i];
+                        y.SetValue(Grid.ColumnProperty, i - 3);
+                        y.SetValue(Grid.RowProperty, x - 3);
+                        fifth.Children.Add(y);
+                    }
+                    if (i > 5 && i <= 8 && x > 5 && x <= 8)
+                    {
+                       
+                        y.Content = board[x, i];
+                        y.SetValue(Grid.ColumnProperty, i - 6);
+                        y.SetValue(Grid.RowProperty, x - 6);
+                        night.Children.Add(y);
+                    }
+                    if (i > 5 && i <= 8 && x > 2 && x <= 5)
+                    {
+                        y.Content = board[x, i];
+                        y.SetValue(Grid.ColumnProperty, i - 6);
+                        y.SetValue(Grid.RowProperty, x - 3);
+                        sixth.Children.Add(y);
+                    }
+                    if (i > 2 && i <= 5 && x > 5 && x <= 8)
+                    {
+                       
+                        y.Content = board[x, i];
+                        y.SetValue(Grid.ColumnProperty, i - 3);
+                        y.SetValue(Grid.RowProperty, x - 6);
+                        eight.Children.Add(y);
+                    }
                 }
-               
             }
-            return null;
-        }
+            }
+
+
+                    //check if it wasnot == " " 
+
+
+                }
+        
+        
     }
    
-}
+
