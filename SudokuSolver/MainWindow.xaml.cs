@@ -33,12 +33,14 @@ namespace SudokuSolver
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
+            Window1 win2 = new Window1();
+            win2.Show();
 
         }
 
         private void HomePageBrowse_Btn_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
     }
 }
