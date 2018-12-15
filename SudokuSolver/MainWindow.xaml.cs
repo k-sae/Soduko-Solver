@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,10 @@ namespace SudokuSolver
         public MainWindow()
         {
             InitializeComponent();
+            Solver s = new Solver();
+            int[,] board = s.Get_random_board();
+            s.ParallelSolve(board);
+            Debug.Write(s.solution);
 
         }
 

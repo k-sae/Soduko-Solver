@@ -1,20 +1,23 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace SudokuSolver
 {
-    class Sequential
+    class Solver
     {
 
         /*
           Solve The sudoku sequentially using backtrack 
          */
 
-        static bool Sequential_solver(int[,]board) {
+       
+       public  bool SequentialSolve(int[,]board) {
                 
                 // get unsigned cell
                 int row=0, col=0;
@@ -28,7 +31,7 @@ namespace SudokuSolver
                         if (Valid_choice(board, row, col, choice)) {
                             board[row, col] = choice;
 
-                            if (Sequential_solver(board))
+                            if (SequentialSolve(board))
                             {
                                 return true;
                             }
@@ -39,10 +42,67 @@ namespace SudokuSolver
                     }
             return false;    
         }
+
+
+
+        public ConcurrentQueue<int[,]> queue = new ConcurrentQueue<int[,]>();
+        public int MAX_THREADS = 4;
+        public int workingThreads = 0;
+        public int[,] solution;
+        public ConcurrentQueue<Task> RunningTasks;
+        public CancellationTokenSource cts = new CancellationTokenSource();
+
+        public void ParallelSolve(int[,] board)
+        {
+            // cant use wait all or any as the tasks created dynamically
+            RunningTasks  = new ConcurrentQueue<Task>();
+            ParallelSolver(board);
+            while (RunningTasks.Any(t => !t.IsCompleted)) ;
+        }
+        private void ParallelSolver(int[,] board)
+        {
+            int row = 0, col = 0;
+            if (Is_fully_assigned(board, ref row, ref col))
+            {
+                // terminate other threads 
+                solution = board;
+                cts.Cancel();
+            }
+
+            for (int k = 0; k < 10; k++)
+            {
+                if (Valid_choice(board, row, col, k))
+                {
+                    board[row, col] = k;
+
+                    if (workingThreads <= MAX_THREADS && !cts.IsCancellationRequested)
+                    {
+                        // new Thread 
+                        workingThreads++;
+                        RunningTasks.Enqueue(Task.Factory.StartNew(() => ParallelSolver(board.Clone() as int[,])));
+                    }
+                    else
+                    {
+                        // attatch to the queue
+                        queue.Enqueue((board.Clone() as int[,]));
+                    }
+                }
+            }
+
+            //if (solution is null && !queue.IsEmpty && !cts.IsCancellationRequested)
+                while (queue.TryDequeue(out int[,] nextBoard) && !queue.IsEmpty)
+                    ParallelSolver(nextBoard);
+            // thread finished. start working on the next item on queue
+            // if it reached a solution horray finish the work of all threads 
+            // if not hf
+        }
+
+
+
         /*
          Check if current choice valid to put in row ,column and square prespective
              */
-        private static bool Valid_choice(int[,] board, int row, int col, int choice)
+        private bool Valid_choice(int[,] board, int row, int col, int choice)
         {
             return Check_row(board, row, choice) && Check_col(board, col, choice) && Check_square(board, row, col, choice);
         }
@@ -51,7 +111,7 @@ namespace SudokuSolver
         /*
          Check if current choice is valid in his 3x3 square
              */
-        private static bool Check_square(int[,] board, int row, int col, int choice)
+        private bool Check_square(int[,] board, int row, int col, int choice)
         {
             int ratio = (int)Math.Sqrt(board.GetLength(0));
             int start_row = row - (row % ratio);
@@ -66,7 +126,7 @@ namespace SudokuSolver
         /*
          Check if current choice valid in column
              */
-        private static bool Check_col(int[,] board, int col, int choice)
+        private bool Check_col(int[,] board, int col, int choice)
         {
             for (int row = 0; row < board.GetLength(0); row++) {
                 if (board[row, col] == choice) return false;
@@ -76,7 +136,7 @@ namespace SudokuSolver
         /*
          Check if current choice valid in row
              */
-        private static bool Check_row(int[,] board, int row, int choice)
+        private bool Check_row(int[,] board, int row, int choice)
         {
             for (int col = 0; col < board.GetLength(1); col++) {
                 if (board[row, col] == choice) return false;
@@ -87,7 +147,7 @@ namespace SudokuSolver
             check if the board is fully assigned and 
             if not return first unsigned cell
              */
-        private static bool Is_fully_assigned(int[,] board,ref int row,ref int col)
+        private bool Is_fully_assigned(int[,] board,ref int row,ref int col)
         {
             for (row = 0; row < board.GetLength(0); row++) {
                 for (col = 0; col < board.GetLength(1); col++) {
@@ -100,7 +160,7 @@ namespace SudokuSolver
 
         /*
         Just for testing 
-        static void Main(string[] args)
+        void Main(string[] args)
         {
 
             // Test the Sequential
@@ -123,7 +183,7 @@ namespace SudokuSolver
          Read the boards from test file and return random board
          * Make sure to put the text file under bin/debug to be able to read
              */
-        private static int[,] Get_random_board()
+        public int[,] Get_random_board()
         {
 
             try
